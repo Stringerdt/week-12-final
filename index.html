@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Asset List</title>
+</head>
+<body>
+
+    <!-- Total Value Header -->
+    <h1 class="text-center mb-5 bg-dark text-white py-3" id="totalAssetValue">Total Asset Value: $0 </h1>
+
+    <!-- Form -->
+    <div class="container mb-5 rounded-2 bg-secondary bg-opacity-10">
+        <div class="row mb-3">
+            <h2 class="text-center py-3 bg-dark text-white rounded-2" id="formHeader">Add New Asset</h2>
+        </div>
+        <div class="row my-3 justify-content-evenly px-3">
+            <div class="col-sm-3">
+                <label class="form-label" for="typeSelect">Asset Type: </label>
+                <select class="me-3 form-select" name="typeSelect" id="typeSelect">
+                    <option value="personal">Personal</option>
+                    <option value="realEstate">Real Estate</option>
+                    <option value="equity">Equity</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="form-label" for="categorySelect">Asset Category: </label>
+                <select class="form-select" name="categorySelect" id="categorySelect">
+                    <option value="cash">Cash</option>
+                    <option value="home">Home</option>
+                    <option value="item">Item</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="form-label" for="">Asset Name/Address: </label>
+                <input class="form-control" type="text" id="nameInput">
+            </div>
+            <div class="col-sm-3">
+                <label class="form-label" for="">Asset Value: </label>
+                <input class="form-control" type="text" id="valueInput">
+            </div>
+        </div>
+        <div class="col-sm-3 mx-auto text-center">
+            <button class="btn btn-success btn-lg fs-4 fw-semibold submit-btn mb-3" id="formSubmit">Submit</button>
+        </div>
+    </div>
+
+    <!-- List Instructions -->
+    <div class="container mb-3">
+        <h5 class="text-center fst-italic fw-light">Click a sub-category (grey items) to view items in that sub-category. </h5>
+    </div>
+    
+    <!-- Asset List -->
+    <div class="container-fluid">
+        <div class="row mx-5">
+            <div class="col-sm-4 ">
+                <ul class="list-group">
+                    <li class="list-group-item bg-dark text-white fs-3">Personal Assets: $<span class="fw-semibold type-value" id="personalValue"></span></li>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="cash">Cash</li>
+                    <ul class="list-group asset-list" id="cashAssetList"></ul>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="home">Home</li>
+                    <ul class="list-group asset-list" id="homeAssetList"></ul>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="item">Items</li>
+                    <ul class="list-group asset-list" id="itemAssetList"></ul>
+                </ul>
+            </div>
+            <div class="col-sm-4 ">
+                <ul class="list-group">
+                    <li class="list-group-item bg-dark text-white fs-3">Real Estate Assets: $<span class="fw-semibold type-value" id="realEstateValue"></span></li>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="rental">Rentals </li>
+                    <ul class="list-group asset-list" id="rentalAssetList"></ul>
+
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="flip">Flips </li>
+                    <ul class="list-group asset-list" id="flipAssetList"></ul>
+
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="land">Land </li>
+                    <ul class="list-group asset-list" id="landAssetList"></ul>
+
+                </ul>
+            </div>
+            <div class="col-sm-4 ">
+                <ul class="list-group">
+                    <li class="list-group-item bg-dark text-white fs-3">Equity Assets: $<span class="fw-semibold type-value" id="equityValue"></span></li>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="etf">ETFs </li>
+                    <ul class="list-group asset-list" id="etfAssetList"></ul>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="stock">Stocks </li>
+                    <ul class="list-group asset-list" id="stockAssetList"></ul>
+                    <li class="list-group-item bg-secondary bg-opacity-25 category-item fs-4 closed" id="crypto">Crypto </li>
+                    <ul class="list-group asset-list" id="cryptoAssetList"></ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
